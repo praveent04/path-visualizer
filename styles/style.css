@@ -1,0 +1,130 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.template{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    max-width: 100%;
+    margin: auto;
+}
+header{
+    position: relative;
+}
+header .guide-toggle{
+    display: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--clr-navy);
+    position: relative;
+    z-index: 2;
+}
+
+#logo {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    text-transform: capitalize;
+    padding: 16px 0;
+}
+
+#logo:hover{
+    color: var(--secondary-clr);
+}
+
+nav {
+    padding: 0 2vw;
+}
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: white;
+}
+.nav-menu>li>a {
+    display: inline-block;
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.nav-menu>li>a.active{
+    background-color: var(--primary-clr);
+}
+
+
+.nav-menu>li>a:hover {
+    color: var(--secondary-clr);
+}
+.nav-menu>li>a.active:hover {
+    color: white;
+}
+
+.drop-box {
+    position: relative;
+}
+
+.drop-box .drop-toggle{
+    display: flex;
+    align-items: center;
+}
+
+.drop-box .drop-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    background-color: var(--clr-navy);
+    width: max-content;
+    min-width: 130px;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 4px;
+    top: calc(100% + 14px);
+}
+.drop-box .drop-menu.active{
+    display: block;
+}
+
+.drop-menu a {
+    display: inline-block;
+    width: 100%;
+    border-radius: 4px;
+    padding: 6px 4px;
+    margin-bottom: 1px !important;
+}
+.drop-menu a.active,
+.drop-menu a:hover{
+    background-color: var(--primary-clr);
+}
+.drop-menu a:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 1024px){
+    nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .nav-menu {
+        grid-column: 1/-1;
+    }
+    .btn {
+        justify-self: start;
+    }
+}
