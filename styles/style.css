@@ -116,6 +116,34 @@ nav {
     margin-bottom: 0;
 }
 
+#board {
+    touch-action: none;
+    touch-action: none;
+    overflow: auto;
+}
+
+#board::-webkit-scrollbar{
+    display: none;
+}
+
+
+#board .row {
+    width: 100%;
+    display: flex;
+}
+
+#board .row .col {
+    width: 100%;
+    min-width: var(--cell-width);
+    aspect-ratio: 1;
+    border: 1px solid var(--light-line);
+    background-color: var(--cell-clr);
+}
+#board .row .col.wall{
+    border-color: var(--clr-navy);
+}
+
+
 @media screen and (max-width: 1024px){
     nav {
         display: grid;
