@@ -5,6 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Path finder</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="styles/utility.css">
+
+</head>
+
+<body>
+
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path finder</title>
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="style/utility.css">
 
@@ -12,9 +26,117 @@
 
 <body>
 
+    
+
     <div class="template">
 
         
+        <header>
+
+            <nav>
+                <a id="logo" href="./index.html">pathfinding visualizer</a>
+
+                <button id="visualize" class="btn">Find</button>
+
+                <ul class="nav-menu">
+                    <li>
+                        <a id="clear-path" href="#">Clear path</a>
+                    </li>
+                    <li>
+                        <a id="clear-board" href="#">Clear board</a>
+                    </li>
+                    <li>
+                        <a id="generate-maze" href="#">Generate Maze</a>
+                    </li>
+
+                    <li id="pixel" class="drop-box">
+                        <a class="drop-toggle" href="#">Pixel<span class="carret"></span></a>
+                        <ul class="drop-menu">
+                            <li><a href="#">14px</a></li>
+                            <li><a href="#">16px</a></li>
+                            <li><a href="#">18px</a></li>
+                            <li><a href="#">20px</a></li>
+                            <li><a href="#" class="active">22px</a></li>
+                            <li><a href="#">24px</a></li>
+                            <li><a href="#">26px</a></li>
+                        </ul>
+                    </li>
+
+                    <li id="speed" class="drop-box">
+                        <a class="drop-toggle" href="#">Speed<span class="carret"></span></a>
+                        <ul class="drop-menu">
+                            <li><a href="#">Slow</a></li>
+                            <li><a href="#" class="active">Normal</a></li>
+                            <li><a href="#">Fast</a></li>
+                        </ul>
+                    </li>
+
+                    <li id="algo" class="drop-box">
+                        <a class="drop-toggle" href="#">Algorithms <span class="carret"></span></a>
+                        <ul class="drop-menu">
+                            <li><a href="#" class="active">BFS</a></li>
+                            <li><a href="#">Dijkstra's Algorithm</a></li>
+                            <li><a href="#">Greedy Best-first Search</a></li>
+                          
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+            </nav>
+
+
+            <ul class="guide">
+                <li>
+                    <div class="symbol source"></div>
+                    <div class="text">Start Node</div>
+                </li>
+
+                <li>
+                    <div class="symbol target"></div>
+                    <div class="text">Target Node</div>
+                </li>
+
+                <li>
+                    <div class="symbol unvisited"></div>
+                    <div class="text"> Unvisited node</div>
+                </li>
+
+                <li>
+                    <div class="symbol visited"></div>
+                    <div class="text">visited node</div>
+                </li>
+
+                <li>
+                    <div class="symbol wall"></div>
+                    <div class="text">wall node</div>
+                </li>
+
+                <li>
+                    <div class="symbol path"></div>
+                    <div class="text">Shortest-Path Node</div>
+                </li>
+
+              
+            </ul>
+
+            <div class="guide-toggle">
+                <img src="assets/icon/angle-double-down.svg" alt="">
+            </div>
+        </header>
+
+
+        <div id="board"><!-- magic --></div>
+    </div>
+</body>
+<script src="index.js"></script>
+
+</html>
+
+    <div class="template">
+
+        <!-- ================ NAVIGATION BAR ============== -->
         <header>
 
             <nav>
@@ -112,6 +234,7 @@
         </header>
 
 
+        <!-- ============ DYNAMIC BOARD ================ -->
         <div id="board"><!-- magic --></div>
     </div>
 </body>
