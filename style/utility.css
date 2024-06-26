@@ -8,13 +8,13 @@
 }
 
 :root {
-    --wall-clr : rgb(12, 53, 71);
-    --visited-clr : rgba(0, 190, 218, 0.75);
-    --path-clr : rgb(255, 254, 106);
-    --text-light: #515067;
+    --wall-clr: rgb(12, 53, 71);
+    --visited-clr: rgba(235, 82, 133, 0.815);
+    --path-clr: rgb(151, 11, 11);
+    --text-light: #383664;
 }
 
-span.carret{
+span.carret {
     display: inline-block;
     aspect-ratio: 1;
     width: 12px;
@@ -23,7 +23,8 @@ span.carret{
     background-repeat: no-repeat;
     margin-left: 4px;
 }
-.wall{
+
+.wall {
     background-color: var(--clr-navy);
     animation: wallAnimation .5s ease-out forwards;
 }
@@ -37,15 +38,15 @@ span.carret{
     animation: visitedAnimation 1.5s ease-out forwards;
 }
 
-.path{
+.path {
     animation: pathAnimation 1.5s ease-out forwards;
 }
 
-.carret{
+.carret {
     aspect-ratio: 1;
 }
 
-.btn{
+.btn {
     user-select: none;
     white-space: nowrap;
     cursor: pointer;
@@ -57,14 +58,17 @@ span.carret{
     color: white;
     font-weight: 600;
 }
-.btn.unactive{
+
+.btn.unactive {
     opacity: .5;
     cursor: default;
 }
-.source{
+
+.source {
     background: url(../assets/icon/source.svg);
 }
-.target{
+
+.target {
     background: url(../assets/icon/target.svg);
 }
 
@@ -75,11 +79,12 @@ span.carret{
         transform: scale(.3);
         background-color: var(--wall-clr);
     }
-    
+
     50% {
         transform: scale(1.0);
         background-color: var(--wall-clr);
     }
+
     100% {
         transform: scale(1.0);
         background-color: var(--wall-clr);
@@ -94,12 +99,12 @@ span.carret{
     }
 
     50% {
-        background-color: rgba(17, 104, 217, 0.75);
+        background-color: rgba(217, 17, 217, 0.75);
     }
 
     75% {
         transform: scale(1);
-        background-color: rgba(0, 217, 159, 0.75);
+        background-color: rgba(217, 0, 127, 0.75);
     }
 
     100% {
@@ -115,12 +120,12 @@ span.carret{
         transform: scale(.6);
         background-color: var(--path-clr);
     }
-    
+
     50% {
         transform: scale(1);
         background-color: var(--path-clr);
     }
-    
+
     100% {
         transform: scale(1.0);
         background-color: var(--path-clr);

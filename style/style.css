@@ -1,9 +1,9 @@
 :root {
-    --clr-navy: #34495e;
-    --primary-clr: #6563ff;
+    --clr-navy: #5e3e34;
+    --primary-clr: #f76f46;
     --secondary-clr: #c4c3fc;
     --light-line: #e4e2ed;
-    --cell-width : 22px;
+    --cell-width: 22px;
     --light-text: #686673;
     --light-dot: #adaac0;
 }
@@ -15,7 +15,7 @@ body {
     position: relative;
 }
 
-.tutorial{
+.tutorial {
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -28,24 +28,28 @@ body {
     align-items: center;
     justify-content: center;
 }
-.tutorial.active{
+
+.tutorial.active {
     display: flex;
 }
-.tutorial-toggle{
+
+.tutorial-toggle {
     width: 30px;
     background: url(../assets/icon/flask.svg);
     border: 1px solid var(--light-line);
     aspect-ratio: 1;
-    border-radius: 5px;    
+    border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     cursor: pointer;
     transition: .3s ease-in-out;
 }
-.tutorial-toggle:hover{
+
+.tutorial-toggle:hover {
     transform: scale(1.1);
     box-shadow: rgba(0, 0, 0, 0.253) 0px 20px 25px -5px, rgba(0, 0, 0, 0.267) 0px 10px 10px -5px;
 }
-.card{
+
+.card {
     user-select: none;
     background-color: white;
     margin: 8px;
@@ -56,54 +60,65 @@ body {
     box-shadow: rgba(29, 32, 34, 0.434) 0px 8px 24px;
 }
 
-.card .upper{
+.card .upper {
     height: 100%;
     min-height: 350px;
     max-width: 500px;
     width: 100%;
     position: relative;
 }
-.card .bottom{
+
+.card .bottom {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid var(--light-line);
     padding: 8px;
     gap: 16px;
 }
-.card .bottom .right{
+
+.card .bottom .right {
     display: flex;
     gap: 2px;
 }
-.card .bottom .right .btn:first-child{
+
+.card .bottom .right .btn:first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-.card .bottom .right .btn:last-child{
+
+.card .bottom .right .btn:last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
-.card .bottom .btn{
+
+.card .bottom .btn {
     font-weight: 500;
     text-transform: capitalize;
     font-size: 13px;
 }
-.blue{
+
+.blue {
     color: var(--primary-clr);
 }
-.slide:nth-child(1){
+
+.slide:nth-child(1) {
     background: url(../assets/tutorial/man-thinking.svg);
 }
-.slide:nth-child(2){
+
+.slide:nth-child(2) {
     background: url(../assets/tutorial/man-with-maze.svg);
 }
-.default-bg{
+
+.default-bg {
     background: url(../assets/tutorial/bg-2.svg);
 }
-.slide:last-child{
+
+.slide:last-child {
     background: url(../assets/tutorial/man-clicking-visualize.svg);
     background-size: 60% 60% !important;
 }
-.upper .slide{
+
+.upper .slide {
     position: absolute;
     top: 0;
     left: 0;
@@ -119,31 +134,35 @@ body {
     text-align: center;
     transition: .5s ease;
 }
-.slide .img-box{
+
+.slide .img-box {
     height: 170px;
     width: 170px;
     overflow: hidden;
     transition: .3s;
 }
-.img-box.shadow{
+
+.img-box.shadow {
     box-shadow: rgba(0, 0, 0, 0.27) 0px 3px 8px;
 }
 
-.img-box.shadow:hover{
+.img-box.shadow:hover {
     transform: scale(1.15);
     box-shadow: rgba(29, 32, 34, 0.434) 0px 8px 24px;
 }
 
-.slide .img-box img{
+.slide .img-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.slide h4{
+
+.slide h4 {
     text-transform: capitalize;
     margin-bottom: 20px;
 }
-.slide p{
+
+.slide p {
     position: absolute;
     bottom: 0;
     margin: 0 30px;
@@ -151,7 +170,8 @@ body {
     color: var(--light-text);
     background-color: white;
 }
-.dots{
+
+.dots {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,37 +179,48 @@ body {
     padding: 10px 0;
 }
 
-@keyframes shake{
-    0% { transform: scale(1);}
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+@keyframes shake {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
-.dots .dot{
+.dots .dot {
     height: 8px;
     width: 8px;
     border-radius: 10px;
     background-color: var(--light-dot);
     cursor: pointer;
 }
-.dots .dot.active{
+
+.dots .dot.active {
     transition: width 0.1s linear;
     width: 16px;
     height: 8px;
     background-color: var(--primary-clr);
 }
 
-.template{
+.template {
     display: grid;
     grid-template-rows: auto 1fr;
     height: 100%;
     max-width: 100%;
     margin: auto;
 }
-header{
+
+header {
     position: relative;
 }
-header .guide-toggle{
+
+header .guide-toggle {
     display: none;
 }
 
@@ -211,13 +242,14 @@ nav {
     padding: 16px 0;
 }
 
-#logo:hover{
+#logo:hover {
     color: var(--secondary-clr);
 }
 
 nav {
     padding: 0 2vw;
 }
+
 .nav-menu {
     display: flex;
     align-items: center;
@@ -226,6 +258,7 @@ nav {
 .nav-menu a {
     color: white;
 }
+
 .nav-menu>li>a {
     display: inline-block;
     padding: 8px 16px;
@@ -234,7 +267,7 @@ nav {
     white-space: nowrap;
 }
 
-.nav-menu>li>a.active{
+.nav-menu>li>a.active {
     background-color: var(--primary-clr);
 }
 
@@ -242,6 +275,7 @@ nav {
 .nav-menu>li>a:hover {
     color: var(--secondary-clr);
 }
+
 .nav-menu>li>a.active:hover {
     color: white;
 }
@@ -251,7 +285,7 @@ nav {
     position: relative;
 }
 
-.drop-box .drop-toggle{
+.drop-box .drop-toggle {
     display: flex;
     align-items: center;
 }
@@ -269,7 +303,8 @@ nav {
     padding: 4px;
     top: calc(100% + 14px);
 }
-.drop-box .drop-menu.active{
+
+.drop-box .drop-menu.active {
     display: block;
 }
 
@@ -280,10 +315,12 @@ nav {
     padding: 6px 4px;
     margin-bottom: 1px !important;
 }
+
 .drop-menu a.active,
-.drop-menu a:hover{
+.drop-menu a:hover {
     background-color: var(--primary-clr);
 }
+
 .drop-menu a:last-child {
     margin-bottom: 0;
 }
@@ -329,7 +366,7 @@ nav {
     overflow: auto;
 }
 
-#board::-webkit-scrollbar{
+#board::-webkit-scrollbar {
     display: none;
 }
 
@@ -346,27 +383,30 @@ nav {
     border: 1px solid var(--light-line);
     background-color: var(--cell-clr);
 }
-#board .row .col.wall{
+
+#board .row .col.wall {
     border-color: var(--clr-navy);
 }
 
 
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
     nav {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
+
     .nav-menu {
         grid-column: 1/-1;
     }
+
     .btn {
         justify-self: start;
     }
 }
 
 
-@media screen and (max-width: 662px){
+@media screen and (max-width: 662px) {
     #visualize {
         justify-self: end;
         grid-column: 3/-1;
@@ -376,36 +416,44 @@ nav {
         margin-bottom: 12px;
         min-width: 180px;
     }
-    .card{
+
+    .card {
         margin: 0;
     }
-    .card .bottom .btn{
+
+    .card .bottom .btn {
         padding: 12px 24px;
         font-size: 14px;
     }
+
     #logo {
         grid-column: 1/3;
         font-size: 16px;
         padding: 10px 0;
     }
+
     .nav-menu {
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr;
         grid-column-gap: 10px;
     }
-    .nav-menu li a{
+
+    .nav-menu li a {
         width: 100%;
         font-size: 12px;
         padding: 8px 4px;
     }
+
     .guide li .symbol {
         width: 12px;
     }
-    .guide li .text{
+
+    .guide li .text {
         font-size: 10px;
     }
-    .guide{
+
+    .guide {
         width: 100%;
         position: absolute;
         background-color: white;
@@ -415,12 +463,13 @@ nav {
         transition: .3s cubic-bezier(0.72, -0.01, 0.31, 0.98);
         box-shadow: none;
     }
-    .guide.active{
+
+    .guide.active {
         transform: translateY(100%);
         box-shadow: 0px 8px 9px #49488549;
     }
-    
-    header .guide-toggle{
+
+    header .guide-toggle {
         display: block;
         box-shadow: 0px 0px;
         position: absolute;
@@ -437,9 +486,9 @@ nav {
         justify-content: center;
         z-index: 10;
     }
-    
+
 }
 
-#pixel .drop-menu{
+#pixel .drop-menu {
     left: 0;
 }

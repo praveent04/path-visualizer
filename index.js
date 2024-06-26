@@ -1,6 +1,3 @@
-// ==========================================================
-// =================== TUTORIAL 📖📽️ =================
-// ==========================================================
 let count = 0;
 const slides = document.querySelectorAll('.tutorial .slide');
 const prevBtn = document.querySelector('#prev');
@@ -34,7 +31,7 @@ skipBtn.addEventListener('click', () => {
     tutorial.classList.remove('active');
 });
 
-// Arranging one after one
+
 slides.forEach((slide, index) => {
     slide.style.left = `${100 * index}%`;
 });
@@ -118,9 +115,9 @@ window.addEventListener('keydown', (e) => {
 
 
 
-// ==========================================================
-// =================== Rendering Grid 📅📏 =================
-// ==========================================================
+
+// =================== Rendering Grid =================
+
 const board = document.querySelector('#board');
 let matrix;
 let row;
@@ -147,7 +144,7 @@ function renderMap() {
     matrix = [];
     col = parseInt(board.clientWidth / width);
     row = parseInt(board.clientHeight / width);
-    if(window.innerWidth <= 662){
+    if (window.innerWidth <= 662) {
         row -= 1;
     }
 
@@ -178,18 +175,18 @@ renderMap();
 
 
 
-// ==========================================================
-// ================= AUXILLARY METHODS ⚙️🦾 ================
-// ==========================================================
 
-//check outBound of matrix ✔️❌
+// ================= AUXILLARY METHODS ================
+
+
+//check outBound of matrix 
 function isValid(x, y) {
     return (x >= 0 && y >= 0 && x < row && y < col);
 }
 
 
 
-//method for setting target and source 🎯⛳
+//method for setting target and source 
 function set(className, x = -1, y = -1) {
     if (isValid(x, y)) {
         matrix[x][y].classList.add(className);
@@ -208,9 +205,9 @@ let target = set('target');
 
 
 
-// ==========================================================
+
 // ====================== CLICK EVENTS ======================
-// ==========================================================
+
 
 const clearNavOption = () => {
     navOptions.forEach((option) => {
@@ -225,14 +222,14 @@ const clearDropMenu = () => {
 }
 
 
-//NAVIGATION click 🔵👆
+//NAVIGATION click
 const navOptions = document.querySelectorAll('.nav-menu>li>a');
 
 
 
 navOptions.forEach((option) => {
     option.addEventListener('click', () => {
-        //clearify
+     
         if (option.classList.contains('drop-toggle') && option.classList.contains('active')) {
             option.classList.remove('active');
             clearDropMenu();
@@ -242,7 +239,7 @@ navOptions.forEach((option) => {
         clearDropMenu();
 
 
-        //adding 
+      
         option.classList.add('active');
 
         if (option.classList.contains('drop-toggle')) {
@@ -253,7 +250,7 @@ navOptions.forEach((option) => {
 })
 
 
-//OUTSIZE CLICK 🚀👆
+//OUTSIZE CLICK 
 document.addEventListener('click', (event) => {
     if (!document.querySelector('.nav-menu').contains(event.target)) {
         clearNavOption();
@@ -262,7 +259,7 @@ document.addEventListener('click', (event) => {
 })
 
 
-//'dropMenu' OPTION CLICK 📃👆
+//'dropMenu' OPTION CLICK 
 const dropMenus = document.querySelectorAll('.drop-menu');
 const dropOptions = document.querySelectorAll('.drop-menu a');
 
@@ -275,12 +272,12 @@ const clearDropOption = () => {
 var algorithm = '';
 dropOptions.forEach((option) => {
     option.addEventListener('click', () => {
-        //clearify
+    
         clearDropOption();
         clearDropMenu();
         clearNavOption();
 
-        //adding
+      
         option.classList.add('active');
 
         if (document.querySelector('#algo').contains(option)) {
@@ -292,7 +289,7 @@ dropOptions.forEach((option) => {
 })
 
 
-//========== GUIDE TOGGLE ⏬⏬
+//========== GUIDE TOGGLE 
 
 const guide = document.querySelector('.guide');
 const guideToggle = document.querySelector('.guide-toggle');
@@ -308,9 +305,9 @@ document.addEventListener('click', (e) => {
 
 
 
-// ==========================================================
-// ================= BOARD INTERATION 🎨🖌️ =================
-// ==========================================================
+
+// ================= BOARD INTERATION =================
+
 
 function boardInteration(cells) {
     let draging = false;
@@ -395,9 +392,8 @@ function boardInteration(cells) {
 
 
 
-// ==========================================================
-// ============== BUTTONS INTERATION 🟡👆 ==================
-// ==========================================================
+// ============== BUTTONS INTERATION ==================
+
 const visualizeBtn = document.getElementById('visualize');
 const clearPathBtn = document.querySelector('#clear-path');
 const clearBoardBtn = document.querySelector('#clear-board');
@@ -414,10 +410,10 @@ speedOptions.forEach((option) => {
     })
 })
 
-if(window.innerWidth <= 662){
+if (window.innerWidth <= 662) {
     delay += 5;
 }
-//sortcuts
+
 
 window.addEventListener('keydown', (e) => {
     switch (e.keyCode) {
@@ -486,8 +482,8 @@ function animate(list, className) {
             else
                 list[i].classList.add(className);
 
-            //after searching is done animate the path
-            if(className == 'visited' && i == list.length-1){
+            
+            if (className == 'visited' && i == list.length - 1) {
                 animate(pathToAnimate, 'path');
             }
         }, (className === 'path') ? i * (delay + 20) : i * delay);
@@ -500,9 +496,9 @@ function animate(list, className) {
 
 
 
-// ==========================================================
-// =================== ALGORITHMS ⚙️🦾 =====================
-// ==========================================================
+
+// =================== ALGORITHMS =====================
+
 
 function generatePath(parents, target) {
     while (target) {
@@ -536,9 +532,7 @@ function BFS() {
         ];
 
         for (const neighbour of neighbours) {
-            //shoulbe be valid
-            //shouldn't be wall
-            //shouldn't be visited
+           
             const key = `${neighbour.x}-${neighbour.y}`;
             if (
                 isValid(neighbour.x, neighbour.y) &&
@@ -615,77 +609,6 @@ function Dijkstra() {
         }
     }
 }
-
-function Astar() {
-    const openSet = [`${source.x}-${source.y}`];
-    const closedSet = new Set();
-    const gScore = new Map();
-    const fScore = new Map();
-    const parent = new Map();
-
-    gScore.set(`${source.x}-${source.y}`, 0);
-    fScore.set(`${source.x}-${source.y}`, heuristic(source, target));
-
-    function heuristic(node, target) {
-        return Math.abs(node.x - target.x) + Math.abs(node.y - target.y);
-    }
-
-    while (openSet.length > 0) {
-
-        let current;
-        let minFScore = Infinity;
-
-        for (const key of openSet) {
-            const f = fScore.get(key);
-            if (f < minFScore) {
-                minFScore = f;
-                current = key.split('-').map(Number);
-            }
-        }
-
-        const [currentX, currentY] = current;
-
-        if (currentX === target.x && currentY === target.y) {
-            generatePath(parent, target);
-            return;
-        }
-
-        openSet.splice(openSet.indexOf(`${currentX}-${currentY}`), 1);
-        closedSet.add(`${currentX}-${currentY}`);
-
-        searchToAnimate.push(matrix[currentX][currentY]);
-
-        const neighbours = [
-            { x: currentX + 1, y: currentY },
-            { x: currentX - 1, y: currentY },
-            { x: currentX, y: currentY + 1 },
-            { x: currentX, y: currentY - 1 }
-        ];
-
-        for (const neighbour of neighbours) {
-            const { x, y } = neighbour;
-            const key = `${x}-${y}`;
-            if (
-                isValid(x, y) &&
-                !matrix[x][y].classList.contains('wall') &&
-                !closedSet.has(key)
-            ) {
-                const tentativeGScore = gScore.get(`${currentX}-${currentY}`) + 1;
-                if (!openSet.includes(key)) {
-                    openSet.push(key);
-                } else if (tentativeGScore >= gScore.get(key)) {
-                    continue;
-                }
-
-                parent.set(key, { x: currentX, y: currentY });
-                gScore.set(key, tentativeGScore);
-                fScore.set(key, gScore.get(key) + heuristic(neighbour, target));
-            }
-        }
-    }
-
-}
-
 
 function greedy() {
     const priorityQueue = new PriorityQueue();
@@ -771,7 +694,7 @@ function recursiveDivisionMaze(rowStart, rowEnd, colStart, colEnd, orientation, 
     }
 
     if (!surroundingWalls) {
-        //Drawing top & bottom Boundary Wall
+  
         for (let i = 0; i < col; i++) {
             if (matrix[0][i].classList.contains('source') || matrix[0][i].classList.contains('target'))
                 continue;
@@ -783,7 +706,7 @@ function recursiveDivisionMaze(rowStart, rowEnd, colStart, colEnd, orientation, 
             wallToAnimate.push(matrix[row - 1][i]);
         }
 
-        //Drawing left & right Boundar wall
+  
         for (let i = 0; i < row; i++) {
             if (matrix[i][0].classList.contains('source') || matrix[i][0].classList.contains('target'))
                 continue;
@@ -796,7 +719,7 @@ function recursiveDivisionMaze(rowStart, rowEnd, colStart, colEnd, orientation, 
         surroundingWalls = true;
     }
 
-    //=========== horizontal ======
+
     if (orientation === "horizontal") {
         let possibleRows = [];
         for (let i = rowStart; i <= rowEnd; i += 2) {
@@ -812,7 +735,7 @@ function recursiveDivisionMaze(rowStart, rowEnd, colStart, colEnd, orientation, 
         let currentRow = possibleRows[Math.floor(Math.random() * possibleRows.length)];
         let colRandom = possibleCols[Math.floor(Math.random() * possibleCols.length)];
 
-        //drawing horizontal wall
+     
         for (i = colStart - 1; i <= colEnd + 1; i++) {
             const cell = matrix[currentRow][i];
             if (!cell || i === colRandom || cell.classList.contains('source') || cell.classList.contains('target'))
@@ -834,7 +757,7 @@ function recursiveDivisionMaze(rowStart, rowEnd, colStart, colEnd, orientation, 
         }
     }
 
-    //=========== vertical ======
+    
     else if (orientation === 'vertical') {
         let possibleCols = [];
         for (let i = colStart; i <= colEnd; i += 2) {
@@ -849,7 +772,7 @@ function recursiveDivisionMaze(rowStart, rowEnd, colStart, colEnd, orientation, 
         let currentCol = possibleCols[Math.floor(Math.random() * possibleCols.length)];
         let rowRandom = possibleRows[Math.floor(Math.random() * possibleRows.length)];
 
-        //drawing vertical wall
+     
         for (i = rowStart - 1; i <= rowEnd + 1; i++) {
             if (!matrix[i]) continue;
 
